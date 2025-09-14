@@ -1,2 +1,9 @@
 bin/*
 .vscode/*
+
+bigO.cpp
+classes.cpp
+linkedLists.cpp
+pointers.cpp
+theory.md
+src/*
