@@ -3,6 +3,6 @@ Language: Cpp
 DerivePointerAlignment: false
 PointerAlignment:Left
 IndentWidth: 1
-AllowShortFunctionsOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: Empty
 ColumnLimit: 80
 ---
