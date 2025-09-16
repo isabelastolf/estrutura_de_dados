@@ -276,7 +276,7 @@ In this case the destructor takes the Node that the head points, set the head to
 Adding a node to the end of the list requires us to: 
 - create the new node, that receives the value, 
 - check if the list has length equals to zero so we can set head and tail to the new node
-- if not, we set the new current tail node to point to the new node, filling the nullptr, then set the tail pointer to point to the new node.
+- if not, we set the current tail node to point to the new node, filling the nullptr, then set the tail pointer to point to the new node.
 - increasing the length through i++ 
 
 ### Pop
@@ -285,7 +285,7 @@ In order to delete the last node, we have to:
 - create a variable called temp that will hold info. It receives head.
 - check if the length is 1, and if it is, set both head and tail to nullptr (so we can deallocate from memory)
 - if the length is not 1, we set a new variable pre.
-- both temp and pre iterates trhough the list, set to stop when temp->next is null. 
+- both temp and  pre iterates trhough the list, set to stop when temp->next is null. 
     - then we equal pre to temp,
     - set temp to be equal to temp->next
 -and it will go until temp is the pointer to the last node, and pre, the pointer to the one that preceeds.
@@ -348,3 +348,14 @@ In this function we add a new node at a chosen index:
 ```
 - increase the length.
 - return true.
+
+### Reverse
+
+- In order to reverse the list, we need a temp, a before and a after node. 
+- Start by setting temp equals head, then head equals tail, then tail equals temp.
+- Then, after receives temp->next (temp holds the original head) and before points to nullptr.
+- After that, we iterate through all elements in list, doing the following:
+    - after receives the temp->next, so it can hold the next element in reverse process;
+    - temp->next receives before, where the current node will point;
+    - before equals temp, where the current node points to;
+    - temp equals after, that will then receive temp->next;
