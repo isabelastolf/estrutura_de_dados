@@ -5,7 +5,9 @@
   <summary>Navegue por seção:</summary>
     <li><a href="#big-os">Big Os</a></li>
     <li><a href="#linked-lists">Linked Lists</a></li>
+    <li><a href="#doubly-linked-lists">Doubly Linked Lists</a></li>
 </details>
+
 
 ## Big Os
 
@@ -14,8 +16,7 @@ Note: big O is specifically the worst case scenario. The best case scenario is o
 
 ![alt text](/src/img/grafico.png)
 
-## O(n)
-
+### O(n)
 ```
 void printItems(int n) {
     for (int i = 0, i < n; i++) {
@@ -28,9 +29,7 @@ int main() {
 }
 ```
 
-
 ###### Drop Constants
-
 ```
 void printItems(int n) {
     for (int i = 0, i < n; i++) {
@@ -96,15 +95,12 @@ int addItems(int n) {
 }
 ```
 
-
 ### O(log n)
 - on this case, the algorithm get to the half of the list, checks if the number is before or after than the current spot; then it discards the other half, and goes to the half of the count there the item is.
-
 
 ### O(n log n)
 - used a lot in sorting algorithms.
 - also a lot consuming, but better than O(n²).
-
 
 ### Big Os in Vectors
 - take the array 
@@ -146,66 +142,66 @@ Make sure to check out the [Big O CheatSheet](https://www.bigocheatsheet.com/) w
         - Vectors have indexes setting the position of each item.
         - Linked Lists have no indexes.
 
-- About them:
-    - The items are spread in different parts of the memory instead of in a contiguous space. 
-    - The items in the vector now become nodes when in linked lists. 
-    - There's a variable that points to the head node of the list.
-    - There's a variable that points to the tail node of the list.
-    - Each node points to the next, head to tail.
-    - The tail node points to a nullptr, as in a pointer that doesn't point to anything.
+### About them:
+- The items are spread in different parts of the memory instead of in a contiguous space. 
+- The items in the vector now become nodes when in linked lists. 
+- There's a variable that points to the head node of the list.
+- There's a variable that points to the tail node of the list.
+- Each node points to the next, head to tail.
+- The tail node points to a nullptr, as in a pointer that doesn't point to anything.
 
-- What we do with it:
-    - Add a node to the end of the list;
-        - In current tail, add the new node to the nullptr's tail.
-        - Tail points the new node;
-        - Has an **O(1)** complexity;
-    - Delete the last node:
-        Current list:
-            3   ->    9   ->    8   ->   7   ->   13   
-            H     
-                                            T
-        Set tail to be equal to the only other pointer that points the current node predecessor, wich is it's own predecessor.
-            As in:
-                3   ->    9   ->    8   ->   7   ->   13
-                H                                     T
-            Because whe have to iterate from the head to the tail, the complexity is **O(n)**
-                > Delete last node
-                - goes from head to tail until it gets to the pointer needed 
-                3   ->    9   ->    8   ->   7   ->   13
-                H-----------------------^             T
-                3   ->    9   ->    8   ->   7   ->   13
-                H-----------------------^             T
-                > Set the pointer Tail equals to the pointer to 7
-
-    - Add an item to the beggining of the list:
-        - Point new head pointer to be equal to the head pointer.
-        - Moves the head pointer to the new head.
-        - Has an **O(1)** complexity
-    - Remove an item that's head of the linked list:
-        - Point pointer header to the next item. (head->next)
-        - Has an **O(1)** complexity.
-    - Add an item to a node that's somewhere in the middle:
-        Current list:
-            3   ->    9   ->    8   ->   7   ->   13   
+### What we do with it:
+- Add a node to the end of the list;
+    - In current tail, add the new node to the nullptr's tail.
+    - Tail points the new node;
+    - Has an **O(1)** complexity;
+- Delete the last node:
+    Current list:
+        3   ->    9   ->    8   ->   7   ->   13   
+        H     
+                                        T
+    Set tail to be equal to the only other pointer that points the current node predecessor, wich is it's own predecessor.
+        As in:
+            3   ->    9   ->    8   ->   7   ->   13
             H                                     T
-        - Goes from head to the pointer of the node that will be closer to head.
-            3   ->    9   ->    8   ->   7   ->   13   
-            H-------------^                       T
-        - Set the pointer of the new node to be equal to the pointer that points to the next item.
-            3   ->    9   ->    8   ->   7   ->   13   
-                H                     4 -^        T
-        - Set the pointer of the previous node to be equal to the new node.
-            3   ->    9   ->    8      7   ->   13   
-                H                -> 4 -^        T
-        - Has an **O(n)** complexity
-    - Remove an item from the list that's somewhere in the middle:
-        - Goes from head to the item that points to the to-be-removed item. That's the previous item.
-            3   ->    9   ->    8   ->   7   ->   13   
-            H---------^---^                       T
-        - Points the previous item's pointer to the to-be-removed item, that points the next.
-            3   ->    9         8   ->   7   ->   13   
-            H         -------------------^        T
-        - Has an **O(n)** complexity
+        Because whe have to iterate from the head to the tail, the complexity is **O(n)**
+            > Delete last node
+            - goes from head to tail until it gets to the pointer needed 
+            3   ->    9   ->    8   ->   7   ->   13
+            H-----------------------^             T
+            3   ->    9   ->    8   ->   7   ->   13
+            H-----------------------^             T
+            > Set the pointer Tail equals to the pointer to 7
+
+- Add an item to the beggining of the list:
+    - Point new head pointer to be equal to the head pointer.
+    - Moves the head pointer to the new head.
+    - Has an **O(1)** complexity
+- Remove an item that's head of the linked list:
+    - Point pointer header to the next item. (head->next)
+    - Has an **O(1)** complexity.
+- Add an item to a node that's somewhere in the middle:
+    Current list:
+        3   ->    9   ->    8   ->   7   ->   13   
+        H                                     T
+    - Goes from head to the pointer of the node that will be closer to head.
+        3   ->    9   ->    8   ->   7   ->   13   
+        H-------------^                       T
+    - Set the pointer of the new node to be equal to the pointer that points to the next item.
+        3   ->    9   ->    8   ->   7   ->   13   
+            H                     4 -^        T
+    - Set the pointer of the previous node to be equal to the new node.
+        3   ->    9   ->    8      7   ->   13   
+            H                -> 4 -^        T
+    - Has an **O(n)** complexity
+- Remove an item from the list that's somewhere in the middle:
+    - Goes from head to the item that points to the to-be-removed item. That's the previous item.
+        3   ->    9   ->    8   ->   7   ->   13   
+        H---------^---^                       T
+    - Points the previous item's pointer to the to-be-removed item, that points the next.
+        3   ->    9         8   ->   7   ->   13   
+        H         -------------------^        T
+    - Has an **O(n)** complexity
 
 - Overall of actions with the LLs and their complexities:
     - Append: O(1)
@@ -359,3 +355,20 @@ In this function we add a new node at a chosen index:
     - temp->next receives before, where the current node will point;
     - before equals temp, where the current node points to;
     - temp equals after, that will then receive temp->next;
+
+# Doubly Linked List
+
+- The main difference here is that there is an extra pointer, called prev:
+```
+class Node {
+  public:
+    int value;
+    Node *next;
+    Node *prev;
+
+    Node (int value) {
+      this->value = value;
+      next = nullptr;
+      prev = nullptr;
+    }
+}
