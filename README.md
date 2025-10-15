@@ -17,7 +17,7 @@ Note: big O is specifically the worst case scenario. The best case scenario is o
 ![alt text](/src/img/grafico.png)
 
 ### O(n)
-```
+``` cpp
 void printItems(int n) {
     for (int i = 0, i < n; i++) {
         cout << i << endl;
@@ -30,7 +30,7 @@ int main() {
 ```
 
 ###### Drop Constants
-```
+``` cpp
 void printItems(int n) {
     for (int i = 0, i < n; i++) {
         cout << i << endl;
@@ -49,7 +49,7 @@ int main() {
 
 ### O(n²)
 
-```
+``` cpp 
 void printItems(int n) {
     for(int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -66,7 +66,7 @@ int main() {
 
 ###### Drop Non-Dominants 
 
-```
+``` cpp
 void printItems(int n) {
     for(int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -221,7 +221,8 @@ Make sure to check out the [Big O CheatSheet](https://www.bigocheatsheet.com/) w
 
 - Also, linked lists can be demonstrated by:
 
-```head: {
+``` cpp
+    head: {
         "value": 3,
         "next" (pointer): {
                 "value": 9,
@@ -242,7 +243,7 @@ Make sure to check out the [Big O CheatSheet](https://www.bigocheatsheet.com/) w
 ### Constructor
 When creating a class, the Constructor says what it is.
 
-```
+``` cpp
     LinkedList(int value) {
         Node *newNode = new Node(value);
         head = newNode; // points the head to the node newNode
@@ -256,7 +257,7 @@ In this code, constructor of the LinkedList class, we see that every LinkedList 
 ### Destructor
 The destructor does indeed destruct the LL. Through a loop it destruct all items, head to tail.
 
-```
+``` cpp
     ~LinkedList() {
         Node *temp = head;
         while (head) {
@@ -359,7 +360,7 @@ In this function we add a new node at a chosen index:
 # Doubly Linked List
 
 - The main difference here is that there is an extra pointer, called prev:
-```
+``` cpp
 class Node {
   public:
     int value;
